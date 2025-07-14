@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  pdp-service:
+    image: permitio/pdp-v2:latest
+    ports:
+      - "7766:7000"
+    environment:
+      - PDP_API_KEY=permit_key_MmsmrS6sfKAa70jLhssdvygLcjbwTwYcLAB16w0xf57PA1BlfxjmSXdIy53Ko9B2gHNgjOfDFpHH4ucb3V4bi0
+      - PDP_DEBUG=True
+
+
+# version: '3'
+# services:
+#   pdp-service:
+#     image: permitio/pdp-v2:latest
+#     ports:
+#       - "7766:7000"
+#     environment:
+#       - PDP_API_KEY=permit_key_2v6VdobU1n5Hk67Qu3a0KY1jMFtCt3vtRIMF4HRM1AuNAX5eHckbWaw3kpnLMQKVnPYBo4xH6IETvdbDSDJrcL
+#       - PDP_DEBUG=True
+#     stdin_open: true
+#     tty: true
+
+# version: '3.8'
+
+# services:
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "${PORT}:${PORT}"
+#     environment:
+#       - NODE_ENV=development
+#       - PORT=${PORT}
+#       - MONGODB_URI=mongodb://mongodb:27017/ai-customer-support
+#       - JWT_SECRET=${JWT_SECRET}
+#       - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+#       - OPENAI_API_KEY=${OPENAI_API_KEY}
+#       - PERMIT_API_KEY=${PERMIT_API_KEY}
+#       - PERMIT_PDP_URL=${PERMIT_PDP_URL}
+#       - PERMIT_ENVIRONMENT=${PERMIT_ENVIRONMENT}
+#       - FRONTEND_URL=${FRONTEND_URL}
+#     depends_on:
+#       - mongodb
+#     volumes:
+#       - .:/usr/src/app
+#       - /usr/src/app/node_modules
+#     networks:
+#       - app-network
+
+#   mongodb:
+#     image: mongo:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongodb_data:/data/db
+#     networks:
+#       - app-network
+
+# networks:
+#   app-network:
+#     driver: bridge
+
+# volumes:
+#   mongodb_data:
